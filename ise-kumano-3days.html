@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>碧き島へ — 東海道・伊勢・熊野 2泊3日</title>
+<meta name="description" content="2026年8月12日〜14日。川崎から丸子宿・熱田・伊勢を経て熊野へ、凪のあすから聖地を辿って帰るドライブ行程。">
+<meta name="theme-color" content="#0A2530">
+<meta property="og:title" content="碧き島へ — 東海道・伊勢・熊野 2泊3日">
+<meta property="og:description" content="2026.08.12–14　川崎 ─ 丸子 ─ 熱田 ─ 伊勢 ─ 熊野 ─ 那智勝浦">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.open-meteo.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A2530; --tide:#17636F; --foam:#EAF1F0; --paper:#FFFFFF;
+    --shu:#B03A2B; --sand:#B39158; --mist:#6E888F; --line:#D2E0DE;
+    --mincho:"Shippori Mincho B1", serif;
+    --gothic:"Zen Kaku Gothic New", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--foam);color:var(--ink);font-family:var(--gothic);font-size:16px;line-height:1.7}
+  .wrap{max-width:560px;margin:0 auto;background:var(--foam)}
+
+  .hero{
+    position:relative;
+    background:linear-gradient(168deg,#123B4A 0%,#0A2530 62%,#071A22 100%);
+    color:#EAF1F0;padding:40px 24px 0;min-height:76vh;
+    display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
+  }
+  .eyebrow{font-size:11px;letter-spacing:.24em;color:#7FB0B4;font-weight:500}
+  .hero-title{
+    writing-mode:vertical-rl;font-family:var(--mincho);font-weight:700;
+    font-size:clamp(46px,14vw,64px);line-height:1.12;letter-spacing:.08em;
+    margin:26px 0 0 auto;text-shadow:0 2px 24px rgba(0,0,0,.35);
+  }
+  .hero-title small{
+    display:block;font-size:.30em;letter-spacing:.3em;color:#8FBFC2;
+    font-weight:500;margin-right:14px;font-family:var(--gothic);
+  }
+  .hero-meta{position:relative;z-index:2;padding-bottom:34px}
+  .hero-dates{font-family:var(--mincho);font-size:22px;letter-spacing:.06em}
+  .hero-route{font-size:12.5px;color:#8FBFC2;letter-spacing:.06em;margin-top:4px}
+  .tide{position:absolute;left:0;right:0;bottom:0;height:70px;opacity:.5}
+
+  .pin{
+    background:var(--ink);color:#CFE3E1;padding:14px 24px 18px;font-size:13px;
+    display:flex;gap:12px;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);
+  }
+  .pin b{color:#fff;font-weight:500;white-space:nowrap}
+  .pin a{color:#7FD3C8;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(127,211,200,.4)}
+
+  .wxsrc{
+    font-size:11.5px;color:var(--mist);letter-spacing:.02em;
+    padding:10px 20px 0;text-align:center;line-height:1.6;
+  }
+  .daywx{
+    font-size:12.5px;color:#31555E;background:#E1ECEA;
+    padding:10px 20px 11px;border-bottom:1px solid var(--line);line-height:1.65;
+  }
+  .daywx b{
+    display:block;color:var(--shu);font-weight:700;
+    font-size:10.5px;letter-spacing:.16em;margin-bottom:2px;
+  }
+
+  .day-head{
+    position:sticky;top:0;z-index:20;
+    background:rgba(234,241,240,.94);
+    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);padding:14px 20px 12px;
+    display:flex;align-items:baseline;gap:11px;
+  }
+  .day-num{font-family:var(--mincho);font-size:13px;color:var(--shu);letter-spacing:.14em;font-weight:700}
+  .day-date{font-family:var(--mincho);font-size:20px;font-weight:700;letter-spacing:.04em}
+  .day-name{font-size:12px;color:var(--mist);margin-left:auto;letter-spacing:.04em}
+
+  .stops{padding:22px 20px 34px;position:relative}
+  .stops::before{content:"";position:absolute;left:29px;top:34px;bottom:44px;width:1px;background:var(--line)}
+  .stop{position:relative;padding-left:38px;margin-bottom:20px}
+  .stop::before{
+    content:"";position:absolute;left:5px;top:9px;width:9px;height:9px;border-radius:50%;
+    background:var(--sand);box-shadow:0 0 0 4px var(--foam);
+  }
+  .stop.is-see::before{background:var(--shu)}
+  .stop.is-sea::before{background:var(--tide)}
+
+  .time{
+    font-family:var(--mincho);font-size:15px;font-weight:700;color:var(--tide);
+    letter-spacing:.05em;font-variant-numeric:tabular-nums;
+    display:flex;align-items:center;
+  }
+  .wx{
+    display:inline-flex;align-items:center;gap:5px;margin-left:10px;
+    font-family:var(--gothic);font-size:12px;font-weight:700;letter-spacing:.02em;
+  }
+  .wx svg{width:17px;height:17px;display:block;flex:none}
+  .wx .pop{color:var(--mist);font-style:normal;font-weight:500}
+  .wx.is-sun{color:#B98428}
+  .wx.is-cloud{color:#6E888F}
+  .wx.is-rain{color:#17636F}
+  .wx.is-storm{color:var(--shu)}
+
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:3px;padding:13px 15px 14px;margin-top:5px}
+  .stop h3{font-family:var(--mincho);font-size:18px;font-weight:700;line-height:1.45;letter-spacing:.02em}
+  .note{font-size:13.5px;color:#3C5A62;margin-top:5px;line-height:1.65}
+  .acts{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+  .btn{
+    font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--tide);text-decoration:none;
+    border:1px solid var(--line);border-radius:100px;padding:5px 13px;
+  }
+  .btn:active{background:var(--foam)}
+  .btn.tel{color:var(--shu)}
+
+  .stop.next .card{border-color:var(--shu);box-shadow:0 2px 0 var(--shu)}
+  .flag{
+    display:inline-block;background:var(--shu);color:#fff;font-size:10.5px;font-weight:700;
+    letter-spacing:.16em;padding:2px 8px;border-radius:2px;margin-bottom:7px;
+  }
+
+  .pack{padding:34px 20px 40px;border-top:1px solid var(--line);background:#F4F8F7}
+  .pack h2{font-family:var(--mincho);font-size:21px;letter-spacing:.08em;font-weight:700}
+  .pack .lead{font-size:13px;color:var(--mist);margin:6px 0 22px}
+  .grp{margin-bottom:22px}
+  .grp h3{
+    font-size:11.5px;letter-spacing:.18em;color:var(--shu);font-weight:700;
+    padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:11px;
+  }
+  .grp ul{list-style:none}
+  .grp li{font-size:14px;padding:5px 0 5px 22px;position:relative;line-height:1.6}
+  .grp li::before{
+    content:"";position:absolute;left:0;top:12px;
+    width:9px;height:9px;border:1px solid var(--tide);border-radius:2px;
+  }
+  .grp li b{font-family:var(--mincho);color:var(--tide);font-weight:700}
+  .grp li span{display:block;font-size:12.5px;color:var(--mist);margin-top:1px}
+
+  .notes{background:var(--ink);color:#CFE3E1;padding:34px 22px 46px}
+  .notes h2{font-family:var(--mincho);font-size:19px;color:#fff;letter-spacing:.1em;margin-bottom:18px;font-weight:700}
+  .notes dl{display:grid;gap:15px}
+  .notes dt{font-size:12px;letter-spacing:.14em;color:#7FB0B4;font-weight:700;margin-bottom:3px}
+  .notes dd{font-size:13.5px;line-height:1.7}
+  .notes a{color:#7FD3C8;font-weight:700;text-decoration:none}
+  .foot{text-align:center;font-size:11px;color:var(--mist);letter-spacing:.16em;padding:22px 16px 34px;line-height:1.9}
+
+  @media (prefers-reduced-motion:no-preference){
+    .stop{animation:rise .5s ease both;animation-timeline:view();animation-range:entry 0% cover 22%}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  }
+  a:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div>
+      <p class="eyebrow">KAWASAKI → ISE → KUMANO</p>
+      <h1 class="hero-title">碧き島へ<small>東海道と凪あすの海</small></h1>
+    </div>
+    <div class="hero-meta">
+      <p class="hero-dates">2026.08.12 – 08.14</p>
+      <p class="hero-route">大師橋 ─ 丸子 ─ 熱田 ─ 伊勢 ─ 熊野 ─ 那智勝浦</p>
+    </div>
+    <svg class="tide" viewBox="0 0 560 70" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,42 C70,22 130,58 200,40 C270,22 330,56 400,38 C460,23 510,48 560,36 L560,70 L0,70 Z" fill="#0B2B36"/>
+      <path d="M0,54 C80,38 140,66 210,52 C290,36 350,64 420,50 C480,38 520,56 560,48 L560,70 L0,70 Z" fill="#071A22"/>
+    </svg>
+  </header>
+
+  <div class="pin">
+    <b>中の島の車</b>
+    <span>ナビは宿ではなく案内所 <a href="tel:0735521110">0735-52-1110</a> へ。駐車場に停めて送迎船で5分。</span>
+  </div>
+
+  <p class="wxsrc" id="wxsrc">時刻ごとの予報を読み込んでいます…</p>
+
+  <!-- DAY 1 -->
+  <div class="day-head">
+    <span class="day-num">一日目</span>
+    <span class="day-date">8/12<span style="font-size:.7em">（水）</span></span>
+    <span class="day-name">東海道を西へ</span>
+  </div>
+  <p class="daywx"><b>この日の見通し</b>静岡は雨、28℃/23℃。降水確率は午前90%・午後80%。台風15号は前夜に関東を通過して北陸方面へ抜ける見込み。</p>
+  <section class="stops">
+    <div class="stop" data-time="2026-08-12T10:00:00+09:00" data-lat="35.54" data-lon="139.74">
+      <p class="time">10:00</p>
+      <div class="card">
+        <h3>自宅を出発</h3>
+        <p class="note">首都高から東名へ。丸子まで約155km、2時間強。台風15号の通過直後で終日雨の予報。余裕をみて30分早めに出るくらいでちょうどいい。</p>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-12T12:15:00+09:00" data-lat="34.95" data-lon="138.34">
+      <p class="time">12:15</p>
+      <div class="card">
+        <h3>丁子屋（丸子宿）でとろろ汁</h3>
+        <p class="note">1596年創業、広重の東海道五十三次に描かれた茅葺きの店。お盆特別営業で11:00〜15:00 L.O.。予約不可の店頭タブレット受付なので、走りながら公式サイトの待ち時間を見て調整する。駐車場80台。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%B8%81%E5%AD%90%E5%B1%8B%20%E4%B8%B8%E5%AD%90">マップ</a>
+          <a class="btn" href="https://chojiya.info/">待ち時間を見る</a>
+        </div>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-12T13:30:00+09:00" data-lat="34.95" data-lon="138.34">
+      <p class="time">13:30</p>
+      <div class="card">
+        <h3>丸子を出発</h3>
+        <p class="note">熱田まで約200km、2時間半。雨で遅れたら熱田着を17:00に後ろ倒しでいい。</p>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-12T16:20:00+09:00" data-lat="35.13" data-lon="136.91">
+      <p class="time">16:20</p>
+      <div class="card">
+        <h3>熱田神宮とひつまぶしの受付</h3>
+        <p class="note">あつた蓬莱軒 神宮店の夜の受付が16:20開始。名前を告げて時間をもらってから、熱田神宮を参拝して待つ。三種の神器の草薙剣を祀る宮で、大楠と本宮で30〜40分ちょうどいい。雨なら受付だけ済ませて車で待機する手も。駐車場45台。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%82%E3%81%A4%E3%81%9F%E8%93%AC%E8%8E%B1%E8%BB%92%E7%A5%9E%E5%AE%AE%E5%BA%97">マップ</a>
+          <a class="btn tel" href="tel:0526825598">052-682-5598</a>
+        </div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-12T18:00:00+09:00" data-lat="35.13" data-lon="136.91">
+      <p class="time">18:00</p>
+      <div class="card">
+        <h3>ひつまぶし</h3>
+        <p class="note">夜の部は20:30 L.O.。食べ終わったらそのまま伊勢湾岸道へ。</p>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-12T21:00:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">21:00</p>
+      <div class="card">
+        <h3>Hotel JJ 伊勢</h3>
+        <p class="note">宿泊プランは20:00から。予約不可なので、ガレージのランプが点いている部屋に車を入れる。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E3%83%9B%E3%83%86%E3%83%ABJJ%E4%BC%8A%E5%8B%A2%E5%BA%97%20%E6%9D%91%E6%9D%BE%E7%94%BA">マップ</a>
+          <a class="btn tel" href="tel:0596376068">0596-37-6068</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 2 -->
+  <div class="day-head">
+    <span class="day-num">二日目</span>
+    <span class="day-date">8/13<span style="font-size:.7em">（木）</span></span>
+    <span class="day-name">伊勢の朝と那智山</span>
+  </div>
+  <p class="daywx"><b>この日の見通し</b>熊野は27℃/22℃、降水確率60%。時間別では15時頃まで雨で、夕方から回復する予想。那智の滝に着く頃が一番よくなる。</p>
+  <section class="stops">
+    <div class="stop" data-time="2026-08-13T05:00:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">05:00</p>
+      <div class="card">
+        <h3>ホテルを出発</h3>
+        <p class="note">外宮まで約20分。</p>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T05:30:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">05:30</p>
+      <div class="card">
+        <h3>伊勢神宮 外宮</h3>
+        <p class="note">8月は5:00開門。正式な参拝順は外宮が先。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%E5%A4%96%E5%AE%AE">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T06:30:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">06:30</p>
+      <div class="card">
+        <h3>伊勢神宮 内宮</h3>
+        <p class="note">誰もいない宇治橋を渡れるのはこの時間だけ。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%E5%86%85%E5%AE%AE">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T08:00:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">08:00</p>
+      <div class="card">
+        <h3>赤福本店・おかげ横丁</h3>
+        <p class="note">赤福は朝5時から。次の食事が13時なので、ここでしっかり食べておく。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E7%A6%8F%E6%9C%AC%E5%BA%97">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-13T08:45:00+09:00" data-lat="34.48" data-lon="136.71">
+      <p class="time">08:45</p>
+      <div class="card">
+        <h3>伊勢を出発</h3>
+        <p class="note">紀勢道 → 熊野尾鷲道路で約1時間40分。</p>
+      </div>
+    </div>
+    <div class="stop is-sea" data-time="2026-08-13T10:25:00+09:00" data-lat="33.89" data-lon="136.11">
+      <p class="time">10:25</p>
+      <div class="card">
+        <h3>鬼ヶ城</h3>
+        <p class="note">2期OPの階段のモデル。ただし午前中は雨の予報。濡れた岩場の遊歩道は危険なので、降っていたら千畳敷で引き返すか、明日の茂丸の直前に回す。茂丸は鬼ヶ城の隣なので移動コストはゼロ（そのぶん二木島を落とす）。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%AC%BC%E3%83%B6%E5%9F%8E">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-sea" data-time="2026-08-13T11:35:00+09:00" data-lat="33.89" data-lon="136.11">
+      <p class="time">11:35</p>
+      <div class="card">
+        <h3>熊野市駅の観光協会</h3>
+        <p class="note">聖地巡礼マップをもらうためだけの15分停車。明日の巡礼がぐっと楽になる。案内所2階に記念展示あり。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E5%B8%82%E9%A7%85">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T13:00:00+09:00" data-lat="33.63" data-lon="135.94">
+      <p class="time">13:00</p>
+      <div class="card">
+        <h3>しげ（にぎわい市場）で生まぐろ丼</h3>
+        <p class="note">勝浦漁港の市場の中。8:00〜15:30で火曜休み、今日は営業。すぐ隣がマグロの競り場で、朝獲れがそのまま出てくる。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8B%9D%E6%B5%A6%E6%BC%81%E6%B8%AF%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%B8%82%E5%A0%B4">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T14:15:00+09:00" data-lat="33.67" data-lon="135.89">
+      <p class="time">14:15</p>
+      <div class="card">
+        <h3>大門坂</h3>
+        <p class="note">杉木立の石畳。夫婦杉まで往復30分ほど。雨か霧なら熊野古道らしさは逆に増す。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%E9%A7%90%E8%BB%8A%E5%A0%B4">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T15:00:00+09:00" data-lat="33.67" data-lon="135.89">
+      <p class="time">15:00</p>
+      <div class="card">
+        <h3>熊野那智大社・青岸渡寺</h3>
+        <p class="note">大社は16:30まで。三重塔と滝が重なる定番の構図は青岸渡寺側から。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T15:50:00+09:00" data-lat="33.67" data-lon="135.89">
+      <p class="time">15:50</p>
+      <div class="card">
+        <h3>那智の滝</h3>
+        <p class="note">落差133mで日本一。16時頃から天気が回復する予報なので、雨あがりで水量が増えたところに晴れ間という一番いい条件になりうる。滝前まで階段を降りる。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T16:50:00+09:00" data-lat="33.63" data-lon="135.94">
+      <p class="time">16:50</p>
+      <div class="card">
+        <h3>中の島にチェックイン</h3>
+        <p class="note">最終チェックインは18:00。案内所に車を預けて送迎船へ。明るいうちに紀州潮聞之湯に入っておきたい。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A2%A7%E3%81%8D%E5%B3%B6%E3%81%AE%E5%AE%BF%20%E7%86%8A%E9%87%8E%E5%88%A5%E9%82%B8%20%E4%B8%AD%E3%81%AE%E5%B3%B6">マップ</a>
+          <a class="btn tel" href="tel:0735521110">案内所 0735-52-1110</a>
+        </div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-13T19:30:00+09:00" data-lat="33.63" data-lon="135.94">
+      <p class="time">19:30</p>
+      <div class="card">
+        <h3>夕食</h3>
+        <p class="note">17:30と19:30の2部制。チェックイン時に潮聞之湯の男女入替時間と、湯浴み着の貸出も確認しておく。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAY 3 -->
+  <div class="day-head">
+    <span class="day-num">三日目</span>
+    <span class="day-date">8/14<span style="font-size:.7em">（金）</span></span>
+    <span class="day-name">凪あすの海を辿って帰る</span>
+  </div>
+  <p class="daywx"><b>この日の見通し</b>熊野は30℃/23℃、降水確率60%。静岡はくもりで40%。海に入れるかは当日の朝に判断。（日別はいずれも8/11時点のウェザーニュース）</p>
+  <section class="stops">
+    <div class="stop is-see" data-time="2026-08-14T06:00:00+09:00" data-lat="33.63" data-lon="135.94">
+      <p class="time">06:00</p>
+      <div class="card">
+        <h3>紀州潮聞之湯で朝風呂</h3>
+        <p class="note">朝は6:00〜10:00。男女入替制で、女性の時間帯は湯浴み着を着て入る。</p>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-14T09:30:00+09:00" data-lat="33.63" data-lon="135.94">
+      <p class="time">09:30</p>
+      <div class="card">
+        <h3>チェックアウト</h3>
+        <p class="note">船で戻って車を回収。ここから国道42号を北上しながら聖地を拾っていく。生まぐろを持ち帰るなら、にぎわい市場は8:00開場なので出発前に寄れる。</p>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-14T10:50:00+09:00" data-lat="33.89" data-lon="136.11">
+      <p class="time">10:50</p>
+      <div class="card">
+        <h3>花の窟神社・獅子岩</h3>
+        <p class="note">日本最古とされる岩の神社。9:00〜16:00。道の駅が併設されているので休憩とお土産はここで。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E3%81%AE%E7%AA%9F%E7%A5%9E%E7%A4%BE">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-see" data-time="2026-08-14T11:45:00+09:00" data-lat="33.89" data-lon="136.11">
+      <p class="time">11:45</p>
+      <div class="card">
+        <h3>お食事処 茂丸でさんま寿司</h3>
+        <p class="note">大泊町のR42沿い、鬼ヶ城の少し北。さんま・さば・あじの姿寿司が看板で、あじ寿司定食1,000円。火〜金の11:00〜15:00営業なので今日は開いている。駐車場あり。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E9%A3%9F%E4%BA%8B%E5%87%A6%20%E8%8C%82%E4%B8%B8%20%E7%86%8A%E9%87%8E%E5%B8%82">マップ</a>
+          <a class="btn tel" href="tel:0597701206">0597-70-1206</a>
+        </div>
+      </div>
+    </div>
+    <div class="stop is-sea" data-time="2026-08-14T12:50:00+09:00" data-lat="33.92" data-lon="136.15">
+      <p class="time">12:50</p>
+      <div class="card">
+        <h3>波田須</h3>
+        <p class="note">駅・旧波田須小・天女座。駅前まで車道がないので、集落側に停めて歩く。天女座は土日祝のみ営業なので今日は外観だけ。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B3%A2%E7%94%B0%E9%A0%88%E9%A7%85">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-sea" data-time="2026-08-14T13:55:00+09:00" data-lat="33.92" data-lon="136.15">
+      <p class="time">13:55</p>
+      <div class="card">
+        <h3>新鹿海水浴場</h3>
+        <p class="note">美濱の海のモデル。サヤマートのモデル・清七屋ストアーもすぐ近く。雨なら短めに切り上げて、そのぶん早く帰路へ。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E9%B9%BF%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop is-sea" data-time="2026-08-14T15:00:00+09:00" data-lat="33.92" data-lon="136.15">
+      <p class="time">15:00</p>
+      <div class="card">
+        <h3>二木島</h3>
+        <p class="note">鴛大師漁協のモデルになった旧漁協支所。港まわりの階段もいい。駐車ははっきりしないので路肩の広い所へ。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BA%8C%E6%9C%A8%E5%B3%B6%E6%BC%81%E6%B8%AF">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-14T15:35:00+09:00" data-lat="33.92" data-lon="136.15">
+      <p class="time">15:35</p>
+      <div class="card">
+        <h3>賀田ICから帰路へ</h3>
+        <p class="note">熊野新鹿ICまで戻ると逆走になる。二木島の次のICが賀田なので、そこから北上して紀勢道 → 伊勢湾岸道 → 新東名。約480km。</p>
+        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%B3%80%E7%94%B0IC%20%E7%86%8A%E9%87%8E%E5%B0%BE%E9%B7%B2%E9%81%93%E8%B7%AF">マップ</a></div>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-14T21:40:00+09:00" data-lat="35.54" data-lon="139.74">
+      <p class="time">21:40</p>
+      <div class="card">
+        <h3>帰宅</h3>
+        <p class="note">Uターン渋滞込みの目安。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKING -->
+  <section class="pack">
+    <h2>持ちもの</h2>
+    <p class="lead">服の枚数は2人分×この数字。着替えのタイミングが5回ある前提で組んでいます。</p>
+
+    <div class="grp">
+      <h3>服</h3>
+      <ul>
+        <li><b>Tシャツ 5枚</b>（着ている1枚＋替え4枚）<span>12日朝／13日朝＝JJのシャワー後／13日夕＝潮聞之湯の後／14日朝＝朝風呂の後／14日午後＝新鹿の後</span></li>
+        <li><b>下着 6枚</b><span>上の5回分＋雨予報の予備1枚</span></li>
+        <li><b>靴下 5足</b><span>13日は鬼ヶ城と那智山で汗だくになる。帰路用の乾いた1足は分けておく</span></li>
+        <li><b>速乾ハーフパンツ 2本</b><span>1本は新鹿で濡れる前提。神社は夏なら短パンで問題なし</span></li>
+        <li>寝間着は不要<span>中の島は浴衣、JJもガウンとアメニティあり</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>足元</h3>
+      <ul>
+        <li>歩きやすいスニーカー<span>玉砂利・石畳・階段・岩場と3日とも歩く。鬼ヶ城はサンダル不可</span></li>
+        <li>ビーチサンダル<span>新鹿用</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>暑さ</h3>
+      <ul>
+        <li>クーラーボックスと飲み物を多めに</li>
+        <li>経口補水液か塩分タブレット</li>
+        <li>帽子・日焼け止め・冷感タオル<span>鬼ヶ城の遊歩道と大門坂は日陰が少ない</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>海と雨</h3>
+      <ul>
+        <li>水着・ラッシュガード・ビーチタオル</li>
+        <li>濡れ物用のビニール袋<span>このあと7時間運転して帰る</span></li>
+        <li>折りたたみ傘かレインジャケット<span>12日は終日雨、13日も昼過ぎまで雨</span></li>
+        <li>スマホの防水ケース</li>
+        <li>タオルを1〜2枚多めに<span>雨の日は座席と足元が濡れる</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>参拝</h3>
+      <ul>
+        <li>御朱印帳<span>熱田・外宮・内宮・那智大社・青岸渡寺・花の窟で6か所</span></li>
+        <li>小銭<span>賽銭と那智山の駐車場</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>現金</h3>
+      <ul>
+        <li>多めに用意<span>JJは室内精算機。丁子屋と茂丸もカード不可の前提で</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>車</h3>
+      <ul>
+        <li>ETCカード・免許証</li>
+        <li>充電ケーブル2本・シガーソケット充電器・スマホホルダー</li>
+        <li>酔い止め<span>R42は海沿いのカーブが続く</span></li>
+        <li>ワイパーと視界まわりの確認<span>台風通過直後の雨中走行になる</span></li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>聖地巡礼</h3>
+      <ul>
+        <li>凪あすの該当話をダウンロード<span>波田須は電波が心細い</span></li>
+        <li>オフライン地図</li>
+        <li>巡礼マップは13日に熊野市観光協会で受け取る</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="notes">
+    <h2>覚えておくこと</h2>
+    <dl>
+      <dt>中の島</dt>
+      <dd>宿の代表は <a href="tel:0735521111">0735-52-1111</a>、車のナビには案内所の <a href="tel:0735521110">0735-52-1110</a> を入れる。最終チェックイン18:00、夕食は17:30と19:30の2部制。</dd>
+
+      <dt>紀州潮聞之湯</dt>
+      <dd>15:00〜24:00と朝6:00〜10:00。海際で遮るものがないため男女入替制で、女性の時間帯は湯浴み着。貸切露天は50分2,160円。</dd>
+
+      <dt>三食の要点</dt>
+      <dd>丁子屋は予約不可のタブレット受付、公式サイトに待ち組数がリアルタイム表示。しげは火曜休みで8:00〜15:30。茂丸は火〜金のみ11:00〜15:00。どれも8/12〜14は営業日だが、お盆は変則になりうるので前日に一度確認しておくと確実。</dd>
+
+      <dt>あつた蓬莱軒 神宮店</dt>
+      <dd>本店は水曜定休なので神宮店へ。夜の受付は16:20から、20:30 L.O.。席のみの予約を平日夜に若干受けている場合があるので、朝のうちに <a href="tel:0526825598">052-682-5598</a> に聞いてみる手も。</dd>
+
+      <dt>Hotel JJ 伊勢</dt>
+      <dd>予約不可の飛び込み。宿泊プランは20:00から、0時以降のインは550円割増。8/12の夕方に <a href="tel:0596376068">0596-37-6068</a> で混み具合だけ確認しておくと安心。</dd>
+
+      <dt>天気</dt>
+      <dd>時刻の横のアイコンは開くたびに最新の予報を取り直します。8/11時点の見通しは、12日が終日雨、13日は15時頃まで雨で夕方から回復、14日は降水60%。台風15号が11日夜に関東へ上陸して東日本を横断中で、12日午前は北陸に最接近する見込み。出発朝に雨雲レーダーを一度確認。</dd>
+
+      <dt>渋滞</dt>
+      <dd>8/13は下りのピーク、8/14はUターンのピーク。どの時刻も30分〜1時間ぶれる前提で組んである。</dd>
+    </dl>
+  </section>
+
+  <p class="foot">TOKAIDO · ISE · KUMANO<br>2026.08.12 – 08.14</p>
+</div>
+
+<script>
+(function () {
+  var stops = Array.prototype.slice.call(document.querySelectorAll('.stop'));
+
+  /* ---- 次の予定にフラグ ---- */
+  var now = new Date(), next = null;
+  for (var i = 0; i < stops.length; i++) {
+    var t = new Date(stops[i].getAttribute('data-time'));
+    if (isNaN(t)) continue;
+    if (t > now) { next = stops[i]; break; }
+  }
+  if (next) {
+    next.classList.add('next');
+    var flag = document.createElement('span');
+    flag.className = 'flag';
+    flag.textContent = '次はここ';
+    var c = next.querySelector('.card');
+    c.insertBefore(flag, c.firstChild);
+  }
+
+  /* ---- Open-Meteo で各地点の予報を取得 ---- */
+  var S = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">';
+  var ICONS = {
+    sun: S + '<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2M12 19.4v2M2.6 12h2M19.4 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></svg>',
+    partly: S + '<circle cx="8.6" cy="7.6" r="3"/><path d="M8.6 1.9v1.5M2.9 7.6h1.5M4.5 3.5l1.1 1.1M12.7 3.5l-1.1 1.1"/><path d="M9.3 19.6h8.2a3.3 3.3 0 0 0 .3-6.6 4.5 4.5 0 0 0-8.5-.6 3.4 3.4 0 0 0 0 7.2z"/></svg>',
+    cloud: S + '<path d="M7.2 18.8h10a3.7 3.7 0 0 0 .3-7.4 5.1 5.1 0 0 0-9.7-.7 3.8 3.8 0 0 0-.6 8.1z"/></svg>',
+    rain: S + '<path d="M7.2 15.2h10a3.7 3.7 0 0 0 .3-7.4 5.1 5.1 0 0 0-9.7-.7 3.8 3.8 0 0 0-.6 8.1z"/><path d="M9.2 18.1l-.9 2.6M13 18.1l-.9 2.6M16.8 18.1l-.9 2.6"/></svg>',
+    thunder: S + '<path d="M7.2 15.2h10a3.7 3.7 0 0 0 .3-7.4 5.1 5.1 0 0 0-9.7-.7 3.8 3.8 0 0 0-.6 8.1z"/><path d="M13.4 17l-3.1 3.6h3l-1 2.9"/></svg>',
+    snow: S + '<path d="M7.2 15.2h10a3.7 3.7 0 0 0 .3-7.4 5.1 5.1 0 0 0-9.7-.7 3.8 3.8 0 0 0-.6 8.1z"/><path d="M9.3 18.6v2.6M8.2 19.3l2.2 1.2M10.4 19.3l-2.2 1.2M15 18.6v2.6M13.9 19.3l2.2 1.2M16.1 19.3l-2.2 1.2"/></svg>',
+    fog: S + '<path d="M4 8.5h16M6 12.5h13M4 16.5h13M8 20.5h9"/></svg>'
+  };
+
+  function kind(code) {
+    if (code === 0) return ['sun', 'is-sun'];
+    if (code === 1 || code === 2) return ['partly', 'is-sun'];
+    if (code === 3) return ['cloud', 'is-cloud'];
+    if (code === 45 || code === 48) return ['fog', 'is-cloud'];
+    if (code >= 95) return ['thunder', 'is-storm'];
+    if (code >= 71 && code <= 77) return ['snow', 'is-cloud'];
+    if (code === 85 || code === 86) return ['snow', 'is-cloud'];
+    return ['rain', 'is-rain'];
+  }
+
+  var srcEl = document.getElementById('wxsrc');
+  function note(msg) { if (srcEl) srcEl.textContent = msg; }
+
+  var pts = stops.filter(function (s) { return s.dataset.lat && s.dataset.time; });
+  if (!pts.length || !window.fetch) { note(''); return; }
+
+  var keys = [], seen = {};
+  pts.forEach(function (s) {
+    var k = s.dataset.lat + ',' + s.dataset.lon;
+    if (!seen[k]) { seen[k] = 1; keys.push(k); }
+  });
+
+  var url = 'https://api.open-meteo.com/v1/forecast'
+    + '?latitude=' + keys.map(function (k) { return k.split(',')[0]; }).join(',')
+    + '&longitude=' + keys.map(function (k) { return k.split(',')[1]; }).join(',')
+    + '&hourly=weather_code,temperature_2m,precipitation_probability'
+    + '&timezone=Asia%2FTokyo&forecast_days=7';
+
+  fetch(url).then(function (r) { return r.json(); }).then(function (json) {
+    var arr = Array.isArray(json) ? json : [json];
+    var byKey = {};
+    keys.forEach(function (k, i) { byKey[k] = arr[i]; });
+
+    var shown = 0;
+    pts.forEach(function (s) {
+      var d = byKey[s.dataset.lat + ',' + s.dataset.lon];
+      if (!d || !d.hourly || !d.hourly.time) return;
+      var stamp = s.dataset.time.slice(0, 13) + ':00';
+      var i = d.hourly.time.indexOf(stamp);
+      if (i < 0) return;
+
+      var code = d.hourly.weather_code[i];
+      var temp = d.hourly.temperature_2m[i];
+      var pop = d.hourly.precipitation_probability[i];
+      if (code == null || temp == null) return;
+
+      var k = kind(code);
+      var el = document.createElement('span');
+      el.className = 'wx ' + k[1];
+      el.innerHTML = ICONS[k[0]]
+        + '<span>' + Math.round(temp) + '°</span>'
+        + (pop == null ? '' : '<i class="pop">' + pop + '%</i>');
+      s.querySelector('.time').appendChild(el);
+      shown++;
+    });
+
+    if (shown) {
+      note('時刻の横は Open-Meteo の1時間予報（各地点の座標で自動取得）。');
+    } else {
+      note('時間別の予報は届きましたが、旅行日が予報範囲外のようです。日別の見通しは各日の帯を参照してください。');
+    }
+  })['catch'](function () {
+    note('時間別の予報を取得できませんでした。アプリ内ビューアが外部通信を止めているためです。このファイルを保存して Safari や Chrome で開くとアイコンが出ます。日別の見通しは各日の帯に固定表示しています。');
+  });
+})();
+</script>
+</body>
+</html>
