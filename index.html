@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>碧き島へ — 伊勢・熊野</title>
-<meta name="description" content="2026年8月13日〜14日。多気から伊勢神宮を経て熊野へ、凪のあすから聖地を辿って帰るドライブ行程。">
+<title>帰り道 — 凪あすの海と浜松餃子</title>
+<meta name="description" content="2026年8月14日。中の島から凪のあすから聖地を辿り、浜松で餃子を食べて帰る最終日の行程。">
 <meta name="theme-color" content="#0A2530">
-<meta property="og:title" content="碧き島へ — 伊勢・熊野">
-<meta property="og:description" content="2026.08.13–14　多気 ─ 伊勢 ─ 那智勝浦 ─ 熊野">
+<meta property="og:title" content="帰り道 — 凪あすの海と浜松餃子">
+<meta property="og:description" content="2026.08.14　那智勝浦 ─ 熊野 ─ 浜松 ─ 帰宅">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,44 +26,27 @@
   .hero{
     position:relative;
     background:linear-gradient(168deg,#123B4A 0%,#0A2530 62%,#071A22 100%);
-    color:#EAF1F0;padding:40px 24px 0;min-height:70vh;
+    color:#EAF1F0;padding:38px 24px 0;min-height:62vh;
     display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;
   }
   .eyebrow{font-size:11px;letter-spacing:.24em;color:#7FB0B4;font-weight:500}
   .hero-title{
     writing-mode:vertical-rl;font-family:var(--mincho);font-weight:700;
-    font-size:clamp(44px,13vw,60px);line-height:1.12;letter-spacing:.08em;
-    margin:26px 0 0 auto;text-shadow:0 2px 24px rgba(0,0,0,.35);
+    font-size:clamp(42px,12vw,56px);line-height:1.12;letter-spacing:.08em;
+    margin:24px 0 0 auto;text-shadow:0 2px 24px rgba(0,0,0,.35);
   }
   .hero-title small{
-    display:block;font-size:.30em;letter-spacing:.3em;color:#8FBFC2;
-    font-weight:500;margin-right:14px;font-family:var(--gothic);
+    display:block;font-size:.32em;letter-spacing:.3em;color:#8FBFC2;
+    font-weight:500;margin-right:13px;font-family:var(--gothic);
   }
-  .hero-meta{position:relative;z-index:2;padding-bottom:34px}
-  .hero-dates{font-family:var(--mincho);font-size:22px;letter-spacing:.06em}
+  .hero-meta{position:relative;z-index:2;padding-bottom:32px}
+  .hero-dates{font-family:var(--mincho);font-size:21px;letter-spacing:.06em}
   .hero-route{font-size:12.5px;color:#8FBFC2;letter-spacing:.06em;margin-top:4px}
-  .tide{position:absolute;left:0;right:0;bottom:0;height:70px;opacity:.5}
+  .tide{position:absolute;left:0;right:0;bottom:0;height:68px;opacity:.5}
 
-  .pin{
-    background:var(--ink);color:#CFE3E1;padding:14px 24px 18px;font-size:13px;
-    display:flex;gap:12px;align-items:baseline;border-top:1px solid rgba(255,255,255,.08);
-  }
-  .pin b{color:#fff;font-weight:500;white-space:nowrap}
-  .pin a{color:#7FD3C8;font-weight:700;text-decoration:none;border-bottom:1px solid rgba(127,211,200,.4)}
-
-  .day-head{
-    position:sticky;top:0;z-index:20;
-    background:rgba(234,241,240,.94);
-    backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);padding:14px 20px 12px;
-    display:flex;align-items:baseline;gap:11px;
-  }
-  .day-num{font-family:var(--mincho);font-size:13px;color:var(--shu);letter-spacing:.14em;font-weight:700}
-  .day-date{font-family:var(--mincho);font-size:20px;font-weight:700;letter-spacing:.04em}
-  .day-name{font-size:12px;color:var(--mist);margin-left:auto;letter-spacing:.04em}
   .daywx{
     font-size:12.5px;color:#31555E;background:#E1ECEA;
-    padding:10px 20px 11px;border-bottom:1px solid var(--line);line-height:1.65;
+    padding:11px 20px 12px;border-bottom:1px solid var(--line);line-height:1.65;
   }
   .daywx b{
     display:block;color:var(--shu);font-weight:700;
@@ -100,10 +83,10 @@
     letter-spacing:.16em;padding:2px 8px;border-radius:2px;margin-bottom:7px;
   }
 
-  .pack{padding:34px 20px 40px;border-top:1px solid var(--line);background:#F4F8F7}
+  .pack{padding:32px 20px 38px;border-top:1px solid var(--line);background:#F4F8F7}
   .pack h2{font-family:var(--mincho);font-size:21px;letter-spacing:.08em;font-weight:700}
-  .pack .lead{font-size:13px;color:var(--mist);margin:6px 0 22px}
-  .grp{margin-bottom:22px}
+  .pack .lead{font-size:13px;color:var(--mist);margin:6px 0 20px}
+  .grp{margin-bottom:20px}
   .grp h3{
     font-size:11.5px;letter-spacing:.18em;color:var(--shu);font-weight:700;
     padding-bottom:6px;border-bottom:1px solid var(--line);margin-bottom:11px;
@@ -116,7 +99,7 @@
   }
   .grp li span{display:block;font-size:12.5px;color:var(--mist);margin-top:1px}
 
-  .notes{background:var(--ink);color:#CFE3E1;padding:34px 22px 46px}
+  .notes{background:var(--ink);color:#CFE3E1;padding:32px 22px 44px}
   .notes h2{font-family:var(--mincho);font-size:19px;color:#fff;letter-spacing:.1em;margin-bottom:18px;font-weight:700}
   .notes dl{display:grid;gap:15px}
   .notes dt{font-size:12px;letter-spacing:.14em;color:#7FB0B4;font-weight:700;margin-bottom:3px}
@@ -136,12 +119,12 @@
 
   <header class="hero">
     <div>
-      <p class="eyebrow">TAKI → ISE → KUMANO</p>
-      <h1 class="hero-title">碧き島へ<small>伊勢の朝と凪あすの海</small></h1>
+      <p class="eyebrow">NACHIKATSUURA → KUMANO → HAMAMATSU</p>
+      <h1 class="hero-title">帰り道<small>凪あすの海と浜松餃子</small></h1>
     </div>
     <div class="hero-meta">
-      <p class="hero-dates">2026.08.13 – 08.14</p>
-      <p class="hero-route">多気 ─ 伊勢 ─ 那智勝浦 ─ 熊野 ─ 帰路</p>
+      <p class="hero-dates">2026.08.14（金）</p>
+      <p class="hero-route">中の島 ─ 花の窟 ─ 波田須 ─ 新鹿 ─ 浜松 ─ 帰宅</p>
     </div>
     <svg class="tide" viewBox="0 0 560 70" preserveAspectRatio="none" aria-hidden="true">
       <path d="M0,42 C70,22 130,58 200,40 C270,22 330,56 400,38 C460,23 510,48 560,36 L560,70 L0,70 Z" fill="#0B2B36"/>
@@ -149,250 +132,143 @@
     </svg>
   </header>
 
-  <div class="pin">
-    <b>中の島の車</b>
-    <span>ナビは宿ではなく案内所 <a href="tel:0735521110">0735-52-1110</a> へ。駐車場に停めて送迎船で5分。</span>
-  </div>
+  <p class="daywx"><b>この日の見通し</b>熊野は30℃/23℃、降水確率60%。静岡はくもりで40%。泳がないので雨でも予定は動かない。</p>
 
-  <!-- DAY 1 -->
-  <div class="day-head">
-    <span class="day-num">今日</span>
-    <span class="day-date">8/13<span style="font-size:.7em">（木）</span></span>
-    <span class="day-name">伊勢の朝と那智山</span>
-  </div>
-  <p class="daywx"><b>この日の見通し</b>熊野は27℃/22℃、降水確率60%。15時頃まで雨で夕方から回復の予想。那智の滝に着く頃が一番よくなる。</p>
-  <section class="stops">
-    <div class="stop" data-time="2026-08-13T06:30:00+09:00">
-      <p class="time">06:30</p>
-      <div class="card">
-        <h3>ホテルエコノ多気を出発</h3>
-        <p class="note">内宮まで40分ほど。伊勢自動車道で北東へ、伊勢西ICから。</p>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T07:10:00+09:00">
-      <p class="time">07:10</p>
-      <div class="card">
-        <h3>伊勢神宮 内宮</h3>
-        <p class="note">先に内宮へ。お盆でもこの時間なら人が少なく、A・B駐車場も確実に停められる。宇治橋から正宮まで往復1時間ほど。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%E5%86%85%E5%AE%AE">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T08:45:00+09:00">
-      <p class="time">08:45</p>
-      <div class="card">
-        <h3>伊勢神宮 外宮</h3>
-        <p class="note">内宮から15分。御朱印は参拝後に。外宮からは伊勢ICが近いので、このあとの南下もスムーズ。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%8B%A2%E7%A5%9E%E5%AE%AE%E5%A4%96%E5%AE%AE">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T09:30:00+09:00">
-      <p class="time">09:30</p>
-      <div class="card">
-        <h3>赤福 外宮前店</h3>
-        <p class="note">外宮の目の前、外宮参道沿い。9:00開店なのでこの時間から。次の食事が13時過ぎなので、ここでしっかり食べておく。参道には伊勢百貨店やせきや本店もあり、おかげ横丁より空いている。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%B5%A4%E7%A6%8F%20%E5%A4%96%E5%AE%AE%E5%89%8D%E5%BA%97%20%E4%BC%8A%E5%8B%A2%E5%B8%82%E6%9C%AC%E7%94%BA">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop" data-time="2026-08-13T10:00:00+09:00">
-      <p class="time">10:00</p>
-      <div class="card">
-        <h3>伊勢を出発</h3>
-        <p class="note">紀勢道 → 熊野尾鷲道路。熊野市まで約1時間40分。</p>
-      </div>
-    </div>
-    <div class="stop is-sea" data-time="2026-08-13T11:45:00+09:00">
-      <p class="time">11:45</p>
-      <div class="card">
-        <h3>熊野市駅の観光協会</h3>
-        <p class="note">聖地巡礼マップをもらうためだけの15分停車。明日の巡礼がぐっと楽になる。案内所2階に記念展示あり。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E5%B8%82%E9%A7%85">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T13:15:00+09:00">
-      <p class="time">13:15</p>
-      <div class="card">
-        <h3>しげ（にぎわい市場）で生まぐろ丼</h3>
-        <p class="note">勝浦漁港の市場の中。8:00〜15:30なので余裕を持って。すぐ隣がマグロの競り場。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%8B%9D%E6%B5%A6%E6%BC%81%E6%B8%AF%E3%81%AB%E3%81%8E%E3%82%8F%E3%81%84%E5%B8%82%E5%A0%B4">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T14:20:00+09:00">
-      <p class="time">14:20</p>
-      <div class="card">
-        <h3>大門坂</h3>
-        <p class="note">杉木立の石畳。夫婦杉まで往復30分ほど。雨か霧なら熊野古道らしさは逆に増す。疲れていれば入口だけ見て引き返してもいい。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E9%96%80%E5%9D%82%E9%A7%90%E8%BB%8A%E5%A0%B4">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T15:05:00+09:00">
-      <p class="time">15:05</p>
-      <div class="card">
-        <h3>熊野那智大社・青岸渡寺</h3>
-        <p class="note">大社は16:30まで。三重塔と滝が重なる定番の構図は青岸渡寺側から。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%86%8A%E9%87%8E%E9%82%A3%E6%99%BA%E5%A4%A7%E7%A4%BE">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T15:45:00+09:00">
-      <p class="time">15:45</p>
-      <div class="card">
-        <h3>那智の滝</h3>
-        <p class="note">落差133mで日本一。夕方から天気が回復する予報なので、雨あがりで水量が増えたところに晴れ間という条件になりうる。</p>
-        <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%82%A3%E6%99%BA%E3%81%AE%E6%BB%9D">マップ</a></div>
-      </div>
-    </div>
-    <div class="stop hi" data-time="2026-08-13T16:30:00+09:00">
-      <p class="time">16:30</p>
-      <div class="card">
-        <h3>中の島にチェックイン</h3>
-        <p class="note">鬼ヶ城を明日に回したぶん1時間早い。案内所に車を預けて送迎船へ。<b>夕食は17:30の部に変更を申し出る</b>と、19時には終わって早く休める。あわせて潮聞之湯の男女入替時間と、部屋の露天が東向きかも確認しておく。</p>
-        <div class="acts">
-          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E7%A2%A7%E3%81%8D%E5%B3%B6%E3%81%AE%E5%AE%BF%20%E7%86%8A%E9%87%8E%E5%88%A5%E9%82%B8%20%E4%B8%AD%E3%81%AE%E5%B3%B6">マップ</a>
-          <a class="btn tel" href="tel:0735521110">案内所 0735-52-1110</a>
-        </div>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T17:00:00+09:00">
-      <p class="time">17:00</p>
-      <div class="card">
-        <h3>紀州潮聞之湯</h3>
-        <p class="note">15:00〜24:00。夕食前に明るいうちの海を見ておく。女性の時間帯は湯浴み着。</p>
-      </div>
-    </div>
-    <div class="stop is-see" data-time="2026-08-13T17:30:00+09:00">
-      <p class="time">17:30</p>
-      <div class="card">
-        <h3>夕食（第1部）</h3>
-        <p class="note">19時には終わる。21時就寝なら7時間半眠れる。</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DAY 2 -->
-  <div class="day-head">
-    <span class="day-num">明日</span>
-    <span class="day-date">8/14<span style="font-size:.7em">（金）</span></span>
-    <span class="day-name">朝焼けと凪あすの海</span>
-  </div>
-  <p class="daywx"><b>この日の見通し</b>熊野は30℃/23℃、降水確率60%。静岡はくもりで40%。海に入れるかは朝の空を見て判断。</p>
   <section class="stops">
     <div class="stop hi" data-time="2026-08-14T04:40:00+09:00">
       <p class="time">04:40</p>
       <div class="card">
         <h3>朝焼け</h3>
-        <p class="note">この時期の勝浦の日の出は5時10分前後、空が焼け始めるのはその30分ほど前。潮聞之湯は6時からなので、部屋の露天か島内の東が開けた場所で。前夜に場所を聞いておく。</p>
+        <p class="note">勝浦の日の出は5時10分前後、空が焼け始めるのはその30分ほど前。潮聞之湯は6時からなので、部屋の露天か島内の東が開けた場所で。</p>
       </div>
     </div>
     <div class="stop is-see" data-time="2026-08-14T06:00:00+09:00">
       <p class="time">06:00</p>
       <div class="card">
         <h3>紀州潮聞之湯で朝風呂</h3>
-        <p class="note">朝は6:00〜10:00。昨夕と男女が入れ替わっているので確認を。</p>
+        <p class="note">朝は6:00〜10:00。昨夕と男女が入れ替わっているので確認を。船が10:15なので今日はゆっくりできる。</p>
       </div>
     </div>
-    <div class="stop" data-time="2026-08-14T09:30:00+09:00">
-      <p class="time">09:30</p>
+    <div class="stop" data-time="2026-08-14T10:15:00+09:00">
+      <p class="time">10:15</p>
       <div class="card">
-        <h3>チェックアウト</h3>
-        <p class="note">船で戻って車を回収。ここから国道42号を北上しながら聖地を拾っていく。生まぐろを持ち帰るなら、にぎわい市場は8:00開場。</p>
+        <h3>送迎船で本土へ</h3>
+        <p class="note">案内所で車を回収して10:30出発。ここから国道42号を北上しながら聖地を拾っていく。</p>
       </div>
     </div>
-    <div class="stop is-see" data-time="2026-08-14T10:50:00+09:00">
-      <p class="time">10:50</p>
+    <div class="stop is-see" data-time="2026-08-14T11:45:00+09:00">
+      <p class="time">11:45</p>
       <div class="card">
         <h3>花の窟神社・獅子岩</h3>
-        <p class="note">日本最古とされる岩の神社。9:00〜16:00。道の駅が併設されているので休憩とお土産はここで。</p>
+        <p class="note">日本最古とされる岩の神社。9:00〜16:00。道の駅が併設されているので、お土産はここでまとめて。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%8A%B1%E3%81%AE%E7%AA%9F%E7%A5%9E%E7%A4%BE">マップ</a></div>
       </div>
     </div>
-    <div class="stop hi" data-time="2026-08-14T11:30:00+09:00">
-      <p class="time">11:30</p>
+    <div class="stop hi" data-time="2026-08-14T12:25:00+09:00">
+      <p class="time">12:25</p>
       <div class="card">
         <h3>鬼ヶ城</h3>
-        <p class="note">昨日から移動。2期OPの階段のモデルで世界遺産。千畳敷から先は波しぶきがかかる区間があるので身軽に。雨なら千畳敷で引き返す。</p>
+        <p class="note">昨日から回した分。2期OPの階段のモデルで世界遺産。千畳敷から先は波しぶきがかかる区間があるので身軽に。雨なら千畳敷で引き返す。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E9%AC%BC%E3%83%B6%E5%9F%8E">マップ</a></div>
       </div>
     </div>
-    <div class="stop is-see" data-time="2026-08-14T12:40:00+09:00">
-      <p class="time">12:40</p>
+    <div class="stop is-see" data-time="2026-08-14T13:35:00+09:00">
+      <p class="time">13:35</p>
       <div class="card">
         <h3>お食事処 茂丸でさんま寿司</h3>
-        <p class="note">鬼ヶ城のすぐ北、R42沿い。さんま・さば・あじの姿寿司が看板で、あじ寿司定食1,000円。火〜金の11:00〜15:00営業。</p>
+        <p class="note">鬼ヶ城のすぐ北、R42沿い。さんま・さば・あじの姿寿司が看板で、あじ寿司定食1,000円。火〜金の11:00〜15:00営業。<b>次の食事は浜松の21時</b>なので、ここでしっかり食べておく。</p>
         <div class="acts">
           <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E3%81%8A%E9%A3%9F%E4%BA%8B%E5%87%A6%20%E8%8C%82%E4%B8%B8%20%E7%86%8A%E9%87%8E%E5%B8%82">マップ</a>
           <a class="btn tel" href="tel:0597701206">0597-70-1206</a>
         </div>
       </div>
     </div>
-    <div class="stop is-sea" data-time="2026-08-14T13:35:00+09:00">
-      <p class="time">13:35</p>
+    <div class="stop is-sea" data-time="2026-08-14T14:30:00+09:00">
+      <p class="time">14:30</p>
       <div class="card">
         <h3>波田須</h3>
         <p class="note">駅・旧波田須小・天女座。駅前まで車道がないので、集落側に停めて歩く。天女座は土日祝のみ営業なので今日は外観だけ。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B3%A2%E7%94%B0%E9%A0%88%E9%A7%85">マップ</a></div>
       </div>
     </div>
-    <div class="stop is-sea" data-time="2026-08-14T14:35:00+09:00">
-      <p class="time">14:35</p>
+    <div class="stop is-sea" data-time="2026-08-14T15:30:00+09:00">
+      <p class="time">15:30</p>
       <div class="card">
         <h3>新鹿海水浴場</h3>
-        <p class="note">美濱の海のモデル。サヤマートのモデル・清七屋ストアーもすぐ近く。雨なら短めに切り上げて、そのぶん早く帰路へ。</p>
+        <p class="note">美濱の海のモデル。今日は泳がず1時間の散歩。砂浜を歩いて、サヤマートのモデル・清七屋ストアーで買い食い。<b>浜松まで6時間空くので、ここで何か買っておく</b>。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E9%B9%BF%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">マップ</a></div>
       </div>
     </div>
-    <div class="stop is-sea" data-time="2026-08-14T15:40:00+09:00">
-      <p class="time">15:40</p>
+    <div class="stop is-sea" data-time="2026-08-14T16:35:00+09:00">
+      <p class="time">16:35</p>
       <div class="card">
         <h3>二木島</h3>
-        <p class="note">鴛大師漁協のモデルになった旧漁協支所。港まわりの階段もいい。<b>疲れていればここを削れば45分早く帰れる</b>。</p>
+        <p class="note">鴛大師漁協のモデルになった旧漁協支所。港まわりの階段もいい。駐車ははっきりしないので路肩の広い所へ。ここが聖地巡礼の最後。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E4%BA%8C%E6%9C%A8%E5%B3%B6%E6%BC%81%E6%B8%AF">マップ</a></div>
       </div>
     </div>
-    <div class="stop" data-time="2026-08-14T16:15:00+09:00">
-      <p class="time">16:15</p>
+    <div class="stop" data-time="2026-08-14T17:10:00+09:00">
+      <p class="time">17:10</p>
       <div class="card">
         <h3>賀田ICから帰路へ</h3>
-        <p class="note">熊野新鹿ICまで戻ると逆走になる。二木島の次のICが賀田なので、そこから北上して紀勢道 → 伊勢湾岸道 → 新東名。約480km。</p>
+        <p class="note">熊野新鹿ICまで戻ると逆走になる。二木島の次のICが賀田。紀勢道 → 伊勢湾岸道 → 新東名で浜松まで約330km、4時間。<b>途中のSAで一度休憩を</b>。</p>
         <div class="acts"><a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E8%B3%80%E7%94%B0IC%20%E7%86%8A%E9%87%8E%E5%B0%BE%E9%B7%B2%E9%81%93%E8%B7%AF">マップ</a></div>
       </div>
     </div>
-    <div class="stop" data-time="2026-08-14T22:40:00+09:00">
-      <p class="time">22:40</p>
+    <div class="stop hi" data-time="2026-08-14T21:10:00+09:00">
+      <p class="time">21:10</p>
+      <div class="card">
+        <h3>浜太郎 浜松餃子（田町）</h3>
+        <p class="note">17:00〜24:00で今日は営業。タブレット注文で餃子の種類が豊富。浜松ICから10分ほどの市街地なので、コインパーキング前提。満席なら餃子の遠州（鍛冶町）が金曜は深夜3時まで。</p>
+        <div class="acts">
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&query=%E6%B5%9C%E5%A4%AA%E9%83%8E%E6%B5%9C%E6%9D%BE%E9%A4%83%E5%AD%90%20%E7%94%B0%E7%94%BA">マップ</a>
+          <a class="btn tel" href="tel:0534541315">053-454-1315</a>
+        </div>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-14T22:30:00+09:00">
+      <p class="time">22:30</p>
+      <div class="card">
+        <h3>浜松を出発</h3>
+        <p class="note">東名で約250km。眠気を感じたら駿河湾沼津などで迷わず仮眠を。</p>
+      </div>
+    </div>
+    <div class="stop" data-time="2026-08-15T01:30:00+09:00">
+      <p class="time">01:30</p>
       <div class="card">
         <h3>帰宅</h3>
-        <p class="note">Uターン渋滞込みの目安。二木島を削れば22時前。</p>
+        <p class="note">渋滞と休憩込みの目安。</p>
       </div>
     </div>
   </section>
 
   <section class="pack">
-    <h2>持ちもの</h2>
-    <p class="lead">残り2日ぶんだけ。</p>
+    <h2>今日の持ちもの</h2>
+    <p class="lead">泳がないので水着と濡れ物袋は不要になりました。</p>
 
     <div class="grp">
-      <h3>着替え</h3>
+      <h3>チェックアウト前</h3>
       <ul>
-        <li>今日の夕方に1回、明日の海のあとに1回<span>帰路用の乾いた靴下を分けておく</span></li>
-        <li>寝間着は不要<span>中の島は浴衣あり</span></li>
+        <li>部屋の露天・浴室の忘れ物<span>充電器とスマホは特に</span></li>
+        <li>御朱印帳<span>今日は花の窟がある</span></li>
       </ul>
     </div>
 
     <div class="grp">
-      <h3>今日</h3>
+      <h3>車に積む</h3>
       <ul>
-        <li>御朱印帳<span>外宮・内宮・那智大社・青岸渡寺</span></li>
-        <li>小銭<span>賽銭と那智山の駐車場</span></li>
-        <li>雨具<span>15時頃までは降っている前提</span></li>
-        <li>歩きやすい靴<span>玉砂利・石畳・那智の滝の階段</span></li>
-      </ul>
-    </div>
-
-    <div class="grp">
-      <h3>明日</h3>
-      <ul>
-        <li>水着・ビーチタオル・ビーチサンダル</li>
-        <li>濡れ物用のビニール袋<span>このあと7時間運転して帰る</span></li>
+        <li>飲み物を多めに<span>30℃、聖地めぐりは日陰が少ない</span></li>
         <li>凪あすの該当話をダウンロード<span>波田須は電波が心細い</span></li>
-        <li>花の窟の道の駅でお土産<span>ここが最後のまとまった機会</span></li>
+        <li>雨具<span>降水60%</span></li>
+        <li>帰路用の現金とETCカード</li>
+      </ul>
+    </div>
+
+    <div class="grp">
+      <h3>買うもの</h3>
+      <ul>
+        <li>お土産は花の窟の道の駅で<span>ここが最後のまとまった機会</span></li>
+        <li>新鹿の清七屋で軽食<span>浜松まで6時間空く</span></li>
       </ul>
     </div>
   </section>
@@ -400,27 +276,21 @@
   <section class="notes">
     <h2>覚えておくこと</h2>
     <dl>
-      <dt>中の島</dt>
-      <dd>宿の代表は <a href="tel:0735521111">0735-52-1111</a>、車のナビには案内所の <a href="tel:0735521110">0735-52-1110</a> を入れる。最終チェックイン18:00。夕食は17:30と19:30の2部制で、今回は17:30に変更を申し出る。</dd>
+      <dt>朝</dt>
+      <dd>日の出は5時10分前後。船は10:15なので、朝風呂も朝食もゆっくりできる。宿の代表は <a href="tel:0735521111">0735-52-1111</a>。</dd>
 
-      <dt>朝焼け</dt>
-      <dd>勝浦の日の出は5時10分前後。潮聞之湯は6時からなので間に合わない。部屋の露天か、島内で東が開けた場所をチェックイン時に聞いておく。</dd>
+      <dt>賀田IC</dt>
+      <dd>二木島から熊野新鹿ICへ戻ると逆走になる。北隣の賀田ICから乗ること。15〜20分の差。</dd>
 
-      <dt>紀州潮聞之湯</dt>
-      <dd>15:00〜24:00と朝6:00〜10:00。海際で遮るものがないため男女入替制で、女性の時間帯は湯浴み着。貸切露天は50分2,160円。</dd>
+      <dt>食事</dt>
+      <dd>茂丸は火〜金の11:00〜15:00。浜太郎は17:00〜24:00で水曜定休。どちらも今日は営業だが、お盆は変則もありうるので念のため電話を。</dd>
 
-      <dt>変更点</dt>
-      <dd>鬼ヶ城を今日から明日へ移動。雨を避けられて、明日の茂丸の隣なので移動の無駄もない。そのぶん中の島に16:30着。参拝は内宮→外宮の順にして、混む前の内宮を取りにいく形にした。</dd>
-
-      <dt>赤福</dt>
-      <dd>外宮前店は9:00開店、17:00まで。内宮そばの本店は朝5時から開いているので、内宮のあとに寄って外宮前店を飛ばす手もある。その場合は9時前に伊勢を出られて午後が楽になる。</dd>
-
-      <dt>渋滞</dt>
-      <dd>8/14はUターンのピーク。どの時刻も30分〜1時間ぶれる前提で組んである。</dd>
+      <dt>運転</dt>
+      <dd>賀田から浜松まで4時間、浜松から自宅まで3時間。交代前提で、眠くなったら即SAへ。深夜0〜4時に高速上にいれば深夜割引が効く。</dd>
     </dl>
   </section>
 
-  <p class="foot">ISE · NACHI · KUMANO<br>2026.08.13 – 08.14</p>
+  <p class="foot">KUMANO · HAMAMATSU<br>2026.08.14</p>
 </div>
 
 <script>
